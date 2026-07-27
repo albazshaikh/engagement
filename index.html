@@ -1,96 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Albaz & Rida | Engagement Invitation</title>
+  <title>
+    Albaz & Rida | Engagement Invitation
+  </title>
+
 
   <meta
     name="description"
-    content="Join us in celebrating the engagement of Albaz and Rida on 2nd August 2026."
+    content="Engagement invitation of Albaz and Rida on 2nd August 2026"
   />
 
+
   <link rel="stylesheet" href="style.css" />
+
 </head>
+
 
 <body>
 
-  <div class="invitation-container">
 
-    <header class="hero">
-      <p class="small-text">Together with our families</p>
+  <!-- Background Music -->
+
+  <audio id="bgMusic" loop>
+
+    <source src="assets/music.mp3" type="audio/mp3">
+
+  </audio>
+
+
+
+  <!-- Opening Screen -->
+
+  <div class="welcome-screen" id="welcomeScreen">
+
+    <div class="envelope">
+
+      <h2>
+        You Are Invited
+      </h2>
+
+
+      <p>
+        Tap to open our special invitation
+      </p>
+
+
+      <button onclick="openInvitation()">
+
+        Open Invitation 💌
+
+      </button>
+
+
+    </div>
+
+  </div>
+
+
+
+
+  <!-- Main Invitation -->
+
+
+  <div class="invitation-container" id="invitation">
+
+
+    <section class="hero">
+
+
+      <p class="small-text">
+        Together with our families
+      </p>
+
 
       <h1>
+
         Albaz
+
         <span>&</span>
+
         Rida
+
       </h1>
 
+
       <p class="subtitle">
+
         Request the pleasure of your presence
-        at our Engagement Ceremony
+
+        at their Engagement Ceremony
+
       </p>
-    </header>
+
+
+    </section>
+
+
+
+
+    <!-- Couple Image -->
+
+
+    <section class="couple-image">
+
+      <img
+        src="assets/couple-photo.jpg"
+        alt="Albaz and Rida"
+      />
+
+    </section>
+
+
+
 
 
     <section class="details">
 
+
       <div class="card">
-        <h2>Engagement Ceremony</h2>
+
+
+        <h2>
+          Date
+        </h2>
+
 
         <p>
-          Sunday, 2nd August 2026
+          Sunday
         </p>
+
+
+        <p>
+          2nd August 2026
+        </p>
+
+
+      </div>
+
+
+
+
+
+      <div class="card">
+
+
+        <h2>
+          Time
+        </h2>
+
 
         <p>
           5:00 PM onwards
         </p>
 
+
       </div>
+
+
+
 
 
       <div class="card">
 
-        <h2>Venue</h2>
+
+        <h2>
+          Venue
+        </h2>
+
 
         <p>
           VITS by Satyajeet Karad
         </p>
 
+
+      </div>
+
+
+
+    </section>
+
+
+
+
+
+
+    <section class="message">
+
+
+      <p>
+
+        Your presence and blessings
+
+        will make our special day
+
+        even more memorable.
+
+      </p>
+
+
+      <div id="countdown">
+
       </div>
 
 
     </section>
 
 
-    <section class="message">
 
-      <p>
-        Your presence and blessings will make
-        our special day even more memorable.
-      </p>
+
+
+    <!-- Buttons -->
+
+
+    <section class="actions">
+
+
+      <a
+        href="https://maps.google.com"
+        target="_blank"
+      >
+
+        📍 View Location
+
+      </a>
+
+
+
+
+      <a
+        href="https://wa.me/"
+        target="_blank"
+      >
+
+        💬 RSVP
+
+      </a>
+
 
     </section>
 
 
+
+
+
     <footer>
 
-      <p>
-        With love,
-      </p>
+
+      With Love ❤️
+
 
       <strong>
         Albaz & Rida
       </strong>
 
+
     </footer>
+
 
 
   </div>
 
 
-  <script src="script.js"></script>
+
+
+<script src="script.js"></script>
+
 
 </body>
+
 </html>
