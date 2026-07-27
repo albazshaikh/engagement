@@ -1,139 +1,325 @@
-// Engagement Invitation Interactive Effects
+// Premium Engagement Invitation Script
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Create floating hearts animation
 
-  const heartContainer = document.createElement("div");
-  heartContainer.className = "heart-container";
-
-  document.body.appendChild(heartContainer);
+  const welcomeScreen =
+    document.getElementById("welcomeScreen");
 
 
-  function createHeart() {
-
-    const heart = document.createElement("div");
-
-    heart.innerHTML = "♥";
-
-    heart.className = "heart";
+  const invitation =
+    document.getElementById("invitation");
 
 
-    heart.style.left = Math.random() * 100 + "vw";
-
-    heart.style.animationDuration =
-      (Math.random() * 3 + 3) + "s";
+  const music =
+    document.getElementById("bgMusic");
 
 
-    heart.style.fontSize =
-      (Math.random() * 20 + 15) + "px";
+
+  // Initially hide invitation
+
+  invitation.style.display = "none";
 
 
-    heartContainer.appendChild(heart);
+
+  // Open Invitation Function
+
+  window.openInvitation = function () {
+
+
+    welcomeScreen.style.animation =
+      "fadeOut 1s forwards";
 
 
     setTimeout(() => {
 
-      heart.remove();
 
-    }, 6000);
+      welcomeScreen.style.display = "none";
+
+
+      invitation.style.display = "block";
+
+
+      invitation.style.animation =
+        "fadeIn 1.5s ease";
+
+
+      // Start music after user click
+
+      if (music) {
+
+        music.play()
+          .catch(() => {
+
+            console.log(
+              "Music requires user interaction"
+            );
+
+          });
+
+      }
+
+
+    },1000);
+
+
+  };
+
+
+
+
+
+  // =========================
+  // Floating Hearts / Flowers
+  // =========================
+
+
+  function createFloatingElement(){
+
+
+    const element =
+      document.createElement("div");
+
+
+    const symbols = [
+
+      "♥",
+
+      "✿",
+
+      "❀",
+
+      "♡",
+
+      "🌸"
+
+    ];
+
+
+    element.innerHTML =
+      symbols[
+        Math.floor(
+          Math.random()*symbols.length
+        )
+      ];
+
+
+
+    element.className =
+      "heart";
+
+
+
+    element.style.left =
+      Math.random()*100 + "vw";
+
+
+
+    element.style.fontSize =
+      (Math.random()*25+15)+"px";
+
+
+
+    element.style.animationDuration =
+      (Math.random()*3+4)+"s";
+
+
+
+    document.body.appendChild(element);
+
+
+
+    setTimeout(()=>{
+
+      element.remove();
+
+    },6000);
+
+
 
   }
 
 
-  setInterval(createHeart, 700);
+
+  setInterval(
+    createFloatingElement,
+    800
+  );
 
 
 
+
+
+
+  // =========================
   // Countdown Timer
+  // =========================
+
 
   const eventDate =
-    new Date("August 2, 2026 17:00:00").getTime();
+    new Date(
+      "August 2, 2026 17:00:00"
+    ).getTime();
+
 
 
   const countdown =
-    document.createElement("div");
-
-  countdown.className = "countdown";
-
-  document.querySelector(".message")
-    .appendChild(countdown);
+    document.getElementById(
+      "countdown"
+    );
 
 
 
-  function updateCountdown() {
-
-    const now = new Date().getTime();
-
-    const distance = eventDate - now;
+  function updateCountdown(){
 
 
-    if(distance < 0){
+    if(!countdown) return;
+
+
+
+    const now =
+      new Date().getTime();
+
+
+
+    const difference =
+      eventDate - now;
+
+
+
+    if(difference <= 0){
+
 
       countdown.innerHTML =
-        "The celebration has begun ❤️";
+
+      `
+      <h3>
+      The Celebration Has Begun ❤️
+      </h3>
+      `;
+
 
       return;
 
     }
 
 
+
+
+
     const days =
       Math.floor(
-        distance / (1000 * 60 * 60 * 24)
+        difference /
+        (1000*60*60*24)
       );
+
 
 
     const hours =
       Math.floor(
-        (distance % (1000 * 60 * 60 * 24)) /
-        (1000 * 60 * 60)
+
+        (difference %
+        (1000*60*60*24))
+
+        /
+
+        (1000*60*60)
+
       );
+
 
 
     const minutes =
       Math.floor(
-        (distance % (1000 * 60 * 60)) /
-        (1000 * 60)
+
+        (difference %
+        (1000*60*60))
+
+        /
+
+        (1000*60)
+
       );
+
 
 
     const seconds =
       Math.floor(
-        (distance % (1000 * 60)) /
+
+        (difference %
+        (1000*60))
+
+        /
+
         1000
+
       );
 
 
+
+
     countdown.innerHTML =
-      `
+
+    `
+
       <div>
-        <strong>${days}</strong>
+
+        <strong>
+          ${days}
+        </strong>
+
         Days
+
       </div>
 
+
       <div>
-        <strong>${hours}</strong>
+
+        <strong>
+          ${hours}
+        </strong>
+
         Hours
+
       </div>
 
+
       <div>
-        <strong>${minutes}</strong>
+
+        <strong>
+          ${minutes}
+        </strong>
+
         Minutes
+
       </div>
 
+
       <div>
-        <strong>${seconds}</strong>
+
+        <strong>
+          ${seconds}
+        </strong>
+
         Seconds
+
       </div>
-      `;
+
+    `;
+
 
   }
 
 
+
   updateCountdown();
 
-  setInterval(updateCountdown, 1000);
+
+  setInterval(
+    updateCountdown,
+    1000
+  );
 
 
 });
